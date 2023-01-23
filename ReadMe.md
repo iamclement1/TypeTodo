@@ -29,3 +29,9 @@ Here is a quick overview on how to setup the `TypeTodo` repository as a contribu
   ```bash
   npm run build
   ```
+
+  ### Commits meaning
+  Each commit message has a meaning:
+  - feats: This is a short description of `FEATURES` which describe that a new feature was added to the application.
+  - update: A description to remind me that an `UPDATE` commit was done successfully.
+  - fixes: A description to remind me that a `FIX` commit was done successfully.
