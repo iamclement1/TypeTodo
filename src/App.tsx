@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import Loader from './components/Loader';
 import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [error, setError] = useState({});
@@ -23,6 +24,10 @@ const handleDelete = (index: number) => {
   const newTodos = [...todos];
   newTodos.splice(index, 1)
   setTodos(newTodos)
+}
+
+const handleSubmit = (value: string) => {
+  setTodos([...todos, {title: value, id: todos.length + 1, completed: false}])
 }
 
   useEffect(() => {
@@ -50,6 +55,8 @@ const handleDelete = (index: number) => {
           </>
         )
       }
+
+      <TodoForm handleSubmit={handleSubmit} />
     </div>
   )
 }
