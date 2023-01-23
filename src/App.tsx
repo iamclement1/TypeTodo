@@ -19,6 +19,11 @@ const handleCompleted = (index: number) => {
   setTodos(newTodos)
 }
 
+const handleDelete = (index: number) => {
+  const newTodos = [...todos];
+  newTodos.splice(index, 1)
+  setTodos(newTodos)
+}
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users/1/todos')
@@ -36,7 +41,8 @@ const handleCompleted = (index: number) => {
       {
         todos.length > 0 ? todos.map((todo: Todo, index:number) =>
           <div key={index}>
-            <Todo todo={todo} index={index} handleCompleted={handleCompleted}/>
+            <Todo todo={todo} index={index} handleCompleted={handleCompleted}
+            handleDelete={handleDelete}/>
           </div>
         ) : (
           <>
